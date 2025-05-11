@@ -102,13 +102,3 @@ To contribute to the project:
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## Acknowledgments
-
-- [Electron](https://www.electronjs.org/) for providing the framework.
-- [Node.js](https://nodejs.org/) for backend support.
-- [Font Awesome](https://fontawesome.com/) for icons (if used).
-
-## Contact
-
-For questions or support, please contact [your-email@example.com].
