@@ -1,0 +1,214 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light and Dark mode variables */
+:root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #2c2c2c;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --primary: #007bff;
+    --primary-hover: #0056b3;
+    --error: #dc3545;
+    --status-success: #d4edda;
+    --status-success-text: #155724;
+    --status-error: #f8d7da;
+    --status-error-text: #721c24;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212;
+        --card: #1e1e1e;
+        --text: #eaeaea;
+        --input-bg: #2c2c2c;
+        --input-border: #444;
+        --primary: #339af0;
+        --primary-hover: #1c7ed6;
+        --error: #ffa8a8;
+        --status-success: #234b29;
+        --status-success-text: #a9f5bc;
+        --status-error: #5c1b1b;
+        --status-error-text: #ffbaba;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+/* Flex Layout */
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input Fields */
+.input, select {
+    padding: 12px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--primary-hover);
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Status Text */
+.status-text {
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-text.Connected {
+    background-color: var(--status-success);
+    color: var(--status-success-text);
+}
+
+.status-text.Disconnected {
+    background-color: var(--status-error);
+    color: var(--status-error-text);
+}
+
+/* Port Forward Entries */
+.port-forward-entry {
+    display: grid;
+    grid-template-columns: 1fr auto 2fr auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.port-forward-entry input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text);
+    min-width: 70px;
+}
+
+.port-forward-entry span {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: bold;
+}
+
+.remove-button {
+    background-color: transparent;
+    border: none;
+    color: var(--error);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color 0.3s;
+}
+
+.remove-button:hover {
+    color: #b02a37;
+}
+
+/* Form Layout */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .port-forward-entry {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .remove-button {
+        width: 100%;
+    }
+
+    .input {
+        max-width: 100%;
+    }
+}

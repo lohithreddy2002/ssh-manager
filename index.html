@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SSH Manager</h1>
+        </header>
+
+        <main>
+            <!-- Profile Section -->
+            <section class="profile-section">
+                <h2>Profiles</h2>
+                <div class="flex">
+                    <select id="profile-select" class="input"></select>
+                    <div class="button-group">
+                        <button id="connect-button" class="button">Connect</button>
+                        <button id="disconnect-button" class="button" disabled>Disconnect</button>
+                        <button id="edit-button" class="button">Edit</button>
+                        <button id="delete-button" class="button">Delete</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Connection Status -->
+            <section class="status-section">
+                <h2>Connection Status</h2>
+                <p id="status-text" class="status-text Disconnected">Disconnected</p>
+            </section>
+
+            <!-- Profile Details -->
+            <section class="details-section">
+                <h2>Profile Details</h2>
+                <pre id="profile-details-text" class="glass-box"></pre>
+            </section>
+
+            <!-- Add/Edit Profile -->
+            <section class="add-edit-section">
+                <h2 id="add-edit-title">Add New Profile</h2>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="profile-name">Profile Name</label>
+                        <input type="text" id="profile-name" class="input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hostname">Hostname/IP</label>
+                        <input type="text" id="hostname" class="input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="port">SSH Port</label>
+                        <input type="number" id="port" class="input" value="22" min="1" max="65535">
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Port Forwards</h3>
+                        <div id="port-forwards-container"></div>
+                        <button type="button" id="add-forward-button" class="button">Add Port Forward</button>
+                    </div>
+
+                    <button type="submit" id="save-profile-button" class="button">Save Profile</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>
